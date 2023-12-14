@@ -38,6 +38,7 @@ label {
   .button {
     margin-top: 10px;
   }
+
 }
 
 input {
@@ -77,6 +78,14 @@ input {
     margin-top: 10px;
     padding: 0.75rem;
     background-color: #f4f6f8;
+  }
+
+  .address {
+    display: inline-flex;
+    margin-top: 10px;
+    padding: 0.75rem;
+    background-color: #f4f6f8;
+    font-size: 0.875rem;
   }
 }
 
