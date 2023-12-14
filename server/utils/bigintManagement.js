@@ -1,0 +1,1 @@
+module.exports = reviver = (key, value) => (key === "r" || key === 's' ? BigInt(value) : value);

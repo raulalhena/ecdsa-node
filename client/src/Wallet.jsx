@@ -3,11 +3,13 @@ import { secp256k1 } from 'ethereum-cryptography/secp256k1';
 import { toHex } from 'ethereum-cryptography/utils';
 
 function Wallet({ address, setAddress, balance, setBalance, privateKey, setPrivateKey }) {
+  
   async function onChange(evt) {
     const privateKey = evt.target.value;
     setPrivateKey(privateKey);
     const address = toHex(secp256k1.getPublicKey(privateKey));
     setAddress(address);
+    
     if (address) {
       const {
         data: { balance },
@@ -16,6 +18,7 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
     } else {
       setBalance(0);
     }
+
   }
 
   return (
