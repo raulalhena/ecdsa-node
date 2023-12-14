@@ -11,7 +11,6 @@ function Transfer({ address, setBalance, privateKey }) {
 
 
   const signTransfer = () => {
-    console.log(sendAmount, privateKey)
     return secp256k1.sign(Uint8Array.from(sendAmount), privateKey);
   } 
 
@@ -23,7 +22,6 @@ function Transfer({ address, setBalance, privateKey }) {
 
     try {
       const signature = signTransfer();
-      console.log(signature)
 
       const { data: { balance } } = await server.post(`send`, 
         {

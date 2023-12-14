@@ -14,6 +14,7 @@ const balances = {
   "026358092beccb5f7e35b07eee5495ca5b5f369c7e1bcc5c25e6e686ca0e6378b6": 75, // 3 - 77eb9e70453ef0503cb84c51255b5a211f9971c0749377fd9182563665d1c063
 };
 
+
 app.get("/balance/:address", (req, res) => {
   const { address } = req.params;
   const balance = balances[address] || 0;
@@ -32,8 +33,8 @@ app.post("/send", (req, res) => {
     if (balances[sender] < amount) {
       res.status(400).send({ message: "Not enough funds!" });
     } else {
-      balances[sender] -= amount;
-      balances[recipient] += amount;
+      balances[sender] -= parseInt(amount);
+      balances[recipient] += parseInt(amount);
       res.send({ balance: balances[sender] });
     }
   } else {
